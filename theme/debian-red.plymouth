@@ -1,12 +1,12 @@
 [Plymouth Theme]
-Name=debian-logo
-Description=Debian theme with logo and progressbar
+Name=Debian Red
+Description=A minimalistic theme with Debian logo in red 
 ModuleName=two-step
 
 [two-step]
 Font=Cantarell 12
 TitleFont=Cantarell 14
-ImageDir=/usr/share/plymouth/themes/debian-logo
+ImageDir=/usr/share/plymouth/themes/debian-red
 HorizontalAlignment=.5
 VerticalAlignment=.5
 BackgroundStartColor=0x000000

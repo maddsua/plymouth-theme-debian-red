@@ -1,0 +1,32 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+	purge|remove)
+
+	if command -v plymouth-set-default-theme > /dev/null 2>&1 ; then
+
+		echo "Resetting plymouth theme..."
+
+		if [ -f /usr/share/plymouth/themes/debian-red/last-theme.bak ]; then
+
+			plymouth-set-default-theme $(cat /usr/share/plymouth/themes/debian-red/last-theme.bak)
+
+			if command -v update-initramfs > /dev/null 2>&1 ; then
+				update-initramfs -u
+			else
+				echo "WARN: Skipped updating initramfs"
+			fi
+
+		else
+			echo "WARN: Unable to determine the previous plymouth theme"
+		fi
+
+	else
+		echo "WARN: Skipped resetting plymouth theme"
+	fi
+
+esac
+
+exit 0

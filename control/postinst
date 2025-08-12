@@ -7,6 +7,9 @@ case "$1" in
 
 	if command -v plymouth-set-default-theme > /dev/null 2>&1 ; then
 
+		echo "Configuring plymouth theme..."
+
+		plymouth-set-default-theme > /usr/share/plymouth/themes/debian-red/last-theme.bak
 		plymouth-set-default-theme debian-red
 
 		if command -v update-initramfs > /dev/null 2>&1 ; then
