@@ -11,5 +11,7 @@ jobs:
     steps:
       - name: git checkout
         uses: actions/checkout@v4
+        with:
+          lfs: 'true'
       - name: Build
         run: make clean build
