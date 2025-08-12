@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+	purge|remove)
+
+	if command -v plymouth-set-default-theme > /dev/null 2>&1 ; then
+		plymouth-set-default-theme -l | head -1 | xargs -I {} plymouth-set-default-theme {}
+	else
+		echo "WARN: Skipped resetting plymouth theme"
+	fi
+
+esac
+
+exit 0

@@ -1,0 +1,24 @@
+#!/bin/sh
+
+set -e
+
+case "$1" in
+	configure)
+
+	if command -v plymouth-set-default-theme > /dev/null 2>&1 ; then
+
+		plymouth-set-default-theme debian-red
+
+		if command -v update-initramfs > /dev/null 2>&1 ; then
+			update-initramfs -u
+		else
+			echo "WARN: Skipped updating initramfs"
+		fi
+
+	else
+		echo "WARN: Skipped updating plymouth"
+	fi
+
+esac
+
+exit 0

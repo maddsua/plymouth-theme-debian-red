@@ -1,0 +1,8 @@
+Package: plymouth-theme-debian-red
+Version: 0.1.0
+Architecture: all
+Depends: plymouth-themes
+Description: A minimalistic plymouth theme with Debian logo in red
+Section: utils
+Priority: optional
+Maintainer: maddsua <maddsuadev@pm.me>
