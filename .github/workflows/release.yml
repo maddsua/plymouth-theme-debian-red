@@ -1,0 +1,37 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  extract-tag:
+    name: Extract release tag
+    runs-on: ubuntu-latest
+    outputs:
+      tag: ${{ env.VERSION_TAG }}
+      version: ${{ env.VERSION_NUMBER }}
+    steps:
+      - name: Parse refs
+        run: |
+          VERSION_TAG=${GITHUB_REF#refs/*/}
+          VERSION_NUMBER=$(echo "$VERSION_TAG" | grep -o -E '(\.?[0-9]+)+')
+          echo "Detected version: $VERSION_NUMBER; Tag: $VERSION_TAG"
+          echo "VERSION_NUMBER=$VERSION_NUMBER" >> $GITHUB_ENV
+          echo "VERSION_TAG=$VERSION_TAG" >> $GITHUB_ENV
+  pkg-deb:
+    name: Package for Debian
+    needs: ["extract-tag"]
+    runs-on: ubuntu-latest
+    steps:
+      - name: git checkout
+        uses: actions/checkout@v4
+      - name: Build
+        run: make clean build
+      - name: Prepare deb file
+        run: mv build/pkg.deb plymouth-theme-debian-red-${{ needs.extract-tag.outputs.version }}.deb
+      - name: Upload .deb tools package
+        run: gh release upload ${{ needs.extract-tag.outputs.tag }} plymouth-theme-debian-red-${{ needs.extract-tag.outputs.version }}.deb
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
