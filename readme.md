@@ -18,3 +18,8 @@ Todo (probably would have to use `script`):
 Kinda the whole point of this repo is to have a single .deb package that you could just install. 
 
 Head to <https://github.com/maddsua/plymouth-theme-debian-red/releases/latest> and grab the package file there. You know what to do next.
+
+### Screenshots
+
+<img src="previews/main.png" />
+<img src="previews/luks_unlock.png" />
