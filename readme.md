@@ -8,11 +8,6 @@ Changes:
 - Less visual clutter (removed unnecessary keyboard indicators)
 - Updated prompt position
 
-Todo (probably would have to use `script`):
-- Don't hide logo during password prompt
-- Use CSS-Grid-like spacing for text
-- Make sure tha the hibernation message is always displayed, regardless of how long it takes the system to resume
-
 ## Installing
 
 Kinda the whole point of this repo is to have a single .deb package that you could just install. 
