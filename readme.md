@@ -14,6 +14,18 @@ Kinda the whole point of this repo is to have a single .deb package that you cou
 
 Head to [Releases](https://github.com/maddsua/plymouth-theme-debian-red/releases/latest) and grab the package file there. You know what to do next.
 
+To actually activate the theme run:
+
+```bash
+plymouth-set-default-theme debian-red
+```
+
+and then:
+
+```bash
+update-initramfs -u
+```
+
 ### Screenshots
 
 <img src="previews/main.png" />
