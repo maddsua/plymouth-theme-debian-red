@@ -11,6 +11,4 @@ build/pkg.deb:
 	cp -r theme build/pkg/usr/share/plymouth/themes/debian-red
 	cp -r control build/pkg/DEBIAN
 	cp previews/main.png build/pkg/usr/share/plymouth/themes/debian-red/preview.png
-	chmod +x build/pkg/DEBIAN/postinst
-	chmod +x build/pkg/DEBIAN/prerm
 	dpkg-deb -v --build build/pkg

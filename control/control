@@ -2,6 +2,7 @@ Package: plymouth-theme-debian-red
 Version: 0.1.0
 Architecture: all
 Depends: plymouth-themes
+Suggests: kde-config-plymouth
 Description: A minimalistic plymouth theme with Debian logo in red
 Section: utils
 Priority: optional
